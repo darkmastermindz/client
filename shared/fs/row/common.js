@@ -38,6 +38,7 @@ export const StillCommon = (
             clickable={{type: 'icon'}}
             routePath={props.routePath}
             initView="root"
+            mode="row"
           />
         </Kb.Box2>
       )

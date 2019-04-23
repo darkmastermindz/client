@@ -12,6 +12,7 @@ type OwnProps = {|
   floatingMenuProps: FloatingMenuProps,
   path: Types.Path,
   routePath: I.List<string>,
+  mode: 'row' | 'screen',
 |}
 
 const mapStateToProps = state => ({
@@ -20,7 +21,14 @@ const mapStateToProps = state => ({
 
 const ChooseView = props => {
   if (props.view === 'root' || props.view === 'share') {
-    return <Menu routePath={props.routePath} path={props.path} floatingMenuProps={props.floatingMenuProps} />
+    return (
+      <Menu
+        mode={props.mode}
+        routePath={props.routePath}
+        path={props.path}
+        floatingMenuProps={props.floatingMenuProps}
+      />
+    )
   } else if (props.view === 'confirm-save-media' || props.view === 'confirm-send-to-other-app') {
     return <Confirm path={props.path} floatingMenuProps={props.floatingMenuProps} />
   } else {

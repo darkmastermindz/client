@@ -31,6 +31,7 @@ type Props = {|
   onHidden: () => void,
   path: Types.Path,
   routePath: I.List<string>,
+  mode: 'row' | 'screen',
 |}
 
 const IconClickable = props => (
@@ -86,6 +87,7 @@ const PathItemAction = Kb.OverlayParentHOC((props: Props & Kb.OverlayParentProps
         <ChooseView
           path={props.path}
           routePath={props.routePath}
+          mode={props.mode}
           floatingMenuProps={{
             attachTo: props.getAttachmentRef,
             containerStyle: styles.floatingContainer,
