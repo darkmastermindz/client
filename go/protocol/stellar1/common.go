@@ -454,6 +454,7 @@ func (e AccountMode) String() string {
 
 type PaymentPath struct {
 	SourceAmount      string  `codec:"sourceAmount" json:"sourceAmount"`
+	SourceAmountMax   string  `codec:"sourceAmountMax" json:"sourceAmountMax"`
 	SourceAsset       Asset   `codec:"sourceAsset" json:"sourceAsset"`
 	Path              []Asset `codec:"path" json:"path"`
 	DestinationAmount string  `codec:"destinationAmount" json:"destinationAmount"`
@@ -462,8 +463,9 @@ type PaymentPath struct {
 
 func (o PaymentPath) DeepCopy() PaymentPath {
 	return PaymentPath{
-		SourceAmount: o.SourceAmount,
-		SourceAsset:  o.SourceAsset.DeepCopy(),
+		SourceAmount:    o.SourceAmount,
+		SourceAmountMax: o.SourceAmountMax,
+		SourceAsset:     o.SourceAsset.DeepCopy(),
 		Path: (func(x []Asset) []Asset {
 			if x == nil {
 				return nil

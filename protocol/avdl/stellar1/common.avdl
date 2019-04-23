@@ -149,6 +149,7 @@ protocol common {
 
   record PaymentPath {
     string sourceAmount;
+    string sourceAmountMax;
     Asset sourceAsset;
     array<Asset> path;
     string destinationAmount;
